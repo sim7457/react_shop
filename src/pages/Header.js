@@ -4,15 +4,16 @@ import GlobalNav from "./GlobalNav";
 
 const Header = ({ DEFAULT, NAV }) => {
     return (
-        <header>
-            <Inner>
+        <header className="Header">
+            <Inner className="inner">
                 <h1>
                     <Link to='/'>
-                        <img src={process.env.PUBLIC_URL + '/assets/grafflogo.png'}
+                        <img
+                            src={process.env.PUBLIC_URL + '/assets/grafflogo.png'}
                             alt={DEFAULT.company} />
                     </Link>
                 </h1>
-                <nav>
+                <nav className="GlobalGnb">
                     <GlobalNav NAV={NAV} />
                 </nav>
             </Inner>

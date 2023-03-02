@@ -1,3 +1,35 @@
-h1 {
-    color: tomato;
+.Header {
+    line-height: 100px;
+
+    .inner {
+        display: flex;
+        justify-content: space-between;
+    }
+}
+
+.GlobalGnb {
+    &>ul {
+        display: flex;
+        gap: 40px;
+
+        &>li {
+            position: relative;
+        }
+
+        ul {
+            position: absolute;
+            inset: 100px auto auto 0;
+            line-height: 40px;
+            background: #f7f7f7;
+
+            width: 150px;
+            text-align: center;
+
+            border: 3px solid #ddd;
+
+            li~li {
+                border-top: 1px solid #ddd;
+            }
+        }
+    }
 }
