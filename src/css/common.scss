@@ -12,7 +12,6 @@
     h1 {
         display: flex;
         align-items: center;
-        font-size: 0;
     }
 }
 
@@ -57,38 +56,48 @@
     }
 }
 
-.MainSlider {
+.MainSlide {
+
+    // 슬라이드 깜박임 제거...
+    .slick-track,
+    .slick-list {
+        transition-delay: 30ms;
+    }
+
     .itm {
         position: relative;
         height: 600px;
         background-position: center center;
         background-repeat: no-repeat;
         background-size: cover;
-    }
 
-    .inner {
-        position: absolute;
-        inset: 50% auto auto 50%;
-        transform: translate(-50%, -50%);
-        color: #fff;
-        text-shadow: 0 0 1px #000;
+        &.on h2 {}
 
-        h2 {
-            font-size: 50px;
-            font-weight: 700;
-            margin: 0 0 10px 0;
-        }
 
-        p {
-            font-size: 14px;
-            margin: 0 0 10px 0;
+        .inner {
+            position: absolute;
+            inset: 50% auto auto 50%;
+            transform: translate(-50%, -50%);
+            color: #fff;
+            text-shadow: 0 0 1px #000;
+
+            h2 {
+                font-size: 50px;
+                font-weight: 700;
+                margin: 0 0 10px 0;
+            }
+
+            p {
+                font-size: 14px;
+                margin: 0 0 20px 0;
+            }
         }
     }
 
     @for $i from 1 to 4 {
-        @if ($i==2) {
+        @if($i==2) {
             .itm0#{$i} .inner {
-                color: #000;
+                color: #333;
             }
         }
 
@@ -96,4 +105,6 @@
             background-image: url(../../public/assets/mainvisual0#{$i}.jpg);
         }
     }
+
+
 }
