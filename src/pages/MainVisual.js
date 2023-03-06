@@ -2,7 +2,10 @@ import "slick-carousel/slick/slick.css";
 import MainSlide from "react-slick";
 import { BTN, Inner } from "./common";
 import { Link } from "react-router-dom";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import '../css/MainVisual.scss';
+
+
 
 const MainVisual = ({ DEFAULT_CONTENTS }) => {
     const option = {
@@ -11,10 +14,14 @@ const MainVisual = ({ DEFAULT_CONTENTS }) => {
     }
 
     const s = useRef(null);
-    const [sNum, setSNum] = useState(0)
+    const [sNum, setSNum] = useState();
+
+    useEffect(() => {
+        setSNum(0);
+    }, [])
 
     return (
-        <>
+        <section className="MainVisual">
             <MainSlide
                 {...option}
                 ref={s}
@@ -34,26 +41,25 @@ const MainVisual = ({ DEFAULT_CONTENTS }) => {
                     })
                 }
             </MainSlide>
+            <div className="tab">{DEFAULT_CONTENTS[sNum]?.title}</div>
             <div className="arrows">
-                {console.log(s.current)}
-                <button onClick={() => s.current.slickPrev()}>뒤로가기</button>
-                <button onClick={() => s.current.slickNext()}>앞로가기</button>
+                <button onClick={() => s.current.slickPrev()} className="prev">뒤로가기</button>
+                <button onClick={() => s.current.slickNext()} className="next">앞로가기</button>
             </div>
             <div className="num">
-                현재슬라이드의 번호 : {sNum + 1}
-                전체슬라이드갯수 : {DEFAULT_CONTENTS.length}
+                <strong>{sNum && (sNum + 1)}</strong> / <span>{DEFAULT_CONTENTS.length}</span>
             </div>
 
-            <ul>
+            <ul className="dots">
                 {
                     DEFAULT_CONTENTS.map((_, slideIndx) => {
                         return (
-                            <li><button onClick={() => s.current.slickGoTo(slideIndx)}>{slideIndx + 1}</button></li>
+                            <li className={slideIndx === sNum ? 'on' : ''} key={slideIndx}><button onClick={() => s.current.slickGoTo(slideIndx)}>{slideIndx + 1}</button></li>
                         )
                     })
                 }
             </ul>
-        </>
+        </section>
     )
 }
 
