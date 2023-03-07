@@ -32,6 +32,9 @@ const GlobalNav = ({ NAV }) => {
 {/* <Aside toggle={loginOn}>
 	안녕하세요
 </Aside>
+
+
+
 //style
 export const Aside = styled.aside`
     position:fixed;

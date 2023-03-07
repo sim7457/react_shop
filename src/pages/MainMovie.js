@@ -18,6 +18,7 @@ margin: 0 auto;
 
 const Div = styled.div`
 flex:1;
+
 display: flex;
 flex-direction: column;
 justify-content: center;
@@ -36,6 +37,7 @@ margin: 0 0 30px 0;
 
 const VideoPlayWrapper = styled.div`
 font-size: 30px;
+
 `
 
 const MainMovie = ({ DEFAULT_CONTENTS }) => {

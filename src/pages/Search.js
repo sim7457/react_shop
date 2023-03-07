@@ -2,6 +2,7 @@ import { useState } from "react";
 import { BsSearch } from "react-icons/bs";
 import styled from "styled-components";
 
+
 const Input = styled.input`
 border: none;
 outline: none;
@@ -16,14 +17,10 @@ outline: none;
 `
 
 const Search = () => {
-    const [txt, setText] = useState('a');
+    const [txt, setText] = useState('');
     const inputHandler = e => {
         const { value } = e.target;
-        if (value.langth < 5) {
-            //정규식
-            alert('입력하시오')
-        };
-        setText(value);
+        setText(value)
     }
     return (
         <>
@@ -31,7 +28,7 @@ const Search = () => {
             <Button>
                 <BsSearch />
             </Button>
-            {/* <div>{txt}</div> */}
+            <div>{txt}</div>
         </>
     )
 }
